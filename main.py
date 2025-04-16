@@ -13,11 +13,11 @@ def main() -> None:
         guess_number = get_guess_number()
 
 
-# Function that returns the random target number.
+# Create random target number.
 def get_target_number() -> int:
     return random.randrange(varibales_prompts.MIN_NUMBER, varibales_prompts.MAX_NUMBER + 1)
 
-# Function that get the user guess number.
+# Get the user guess number.
 # Guess number should be a positive integer between 1 - 100.
 # Repeat until get a possible estimated number.
 def get_guess_number() -> int:
@@ -39,17 +39,32 @@ def get_guess_number() -> int:
                 print(varibales_prompts.integer_error_msg)
 
 
-# Function that check if the player had guessed write or if the guess is lower or greater than the target number.
+# Check if the player had guessed write or if the guess is lower or greater than the target number.
 def check_guess_number(guess_number : int, target_number :  int) -> bool:
     if guess_number == target_number:
         print(varibales_prompts.congrats)
-        return True
+        play_again()
     elif guess_number > target_number:
         print(varibales_prompts.high)
         return False
     elif guess_number < target_number:
         print(varibales_prompts.low)
         return False
+    
+# Prompt to check if the player want to start new game.
+def play_again():
+    while True:
+        try:
+            play_again_answer = input(varibales_prompts.play_again)
+            if play_again_answer.lower() == 'n':
+                quit()
+            elif play_again_answer.lower() == 'y':
+                main()
+            else:
+                raise ValueError(varibales_prompts.play_again_error)
+        except ValueError as e:
+            print(e)
+
 
 if __name__ == "__main__":
     main()
