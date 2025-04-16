@@ -45,7 +45,7 @@ This project is a classic number guessing game where the computer generates a se
 ## How to Play 🎮
 
 1.  Run the script as described above.
-2.  The game will prompt you: "Guess a number between 1 and 100:" (or your chosen range).
+2.  The game will prompt you: "Guess a number between 1 and 100:".
 3.  Enter an integer and press Enter.
 4.  The game will tell you if your guess is "Too high!", "Too low!", or "Correct!".
 5.  Keep guessing based on the feedback until you guess the correct number.
